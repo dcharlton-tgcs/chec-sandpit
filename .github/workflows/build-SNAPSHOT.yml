@@ -79,4 +79,4 @@ jobs:
         env:
           siteUrl: 'https://tecglobal.sharepoint.com/sites/TGCS-EDC-Projects-NL-JanLinders'
           folderPath: '/Shared Documents/Projects - NL - Jan Linders/Release'
-          tagversion: ${{ steps.pomversion.outputs.version }
+          tagversion: ${{ steps.pomversion.outputs.version }}
