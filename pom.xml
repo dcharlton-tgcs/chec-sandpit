@@ -18,6 +18,9 @@
 
     <properties>
         <serviceName>POSBCBridge</serviceName>
+        <github.owner>dcharlton-tgcs</github.owner>
+        <github.repo>chec-sandpit</github.repo>
+        <github.location>${github.owner}/${github.repo}</github.location>
         <java.version>1.8</java.version>
         <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
         <release.number>2.0.0</release.number>
@@ -125,203 +128,36 @@
     </dependencyManagement>
 
     <repositories>
-        <!-- needed to resolve base gravity dependencies until they are published to tgcsnexus -->
         <repository>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-            <id>xc-repo</id>
-            <name>xc-repo</name>
-            <url>http://xc-repo.rtptgcs.com/nexus/content/groups/public/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>tgcsReleases</id>
-            <name>TGCS Releases</name>
-            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-release/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>tgcsStaging</id>
-            <name>TGCS Staging</name>
-            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-staging/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/${github.owner}/*</url>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
             </snapshots>
-            <id>tgcsSnapshots</id>
-            <name>TGCS Snapshots</name>
-            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-snapshot/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>ngpReleases</id>
-            <name>NGP Releases</name>
-            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-releases/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>ngpStaging</id>
-            <name>NGP Staging</name>
-            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-staging/</url>
-            <layout>default</layout>
-        </repository>
-        <repository>
-            <releases>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>ngpSnapshots</id>
-            <name>NGP Snapshots</name>
-            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-snapshots/</url>
-            <layout>default</layout>
         </repository>
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>tgcsReleases</id>
-            <name>TGCS Releases</name>
-            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-release/</url>
-            <layout>default</layout>
-        </pluginRepository>
-        <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>tgcsStaging</id>
-            <name>TGCS Staging</name>
-            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-staging/</url>
-            <layout>default</layout>
-        </pluginRepository>
-        <pluginRepository>
-            <releases>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
+            <id>github</id>
+            <url>https://maven.pkg.github.com/${github.owner}/*</url>
             <snapshots>
                 <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
             </snapshots>
-            <id>tgcsSnapshots</id>
-            <name>TGCS Snapshots</name>
-            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-snapshot/</url>
-            <layout>default</layout>
-        </pluginRepository>
-        <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>ngpReleases</id>
-            <name>NGP Releases</name>
-            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-releases/</url>
-            <layout>default</layout>
-        </pluginRepository>
-        <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>ngpMavenPublic</id>
-            <name>NGP Maven Public</name>
-            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-public/</url>
-            <layout>default</layout>
-        </pluginRepository>
-        <pluginRepository>
-            <releases>
-                <enabled>true</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>false</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>ngpStaging</id>
-            <name>NGP Staging</name>
-            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-staging/</url>
-            <layout>default</layout>
-        </pluginRepository>
-        <pluginRepository>
-            <releases>
-                <enabled>false</enabled>
-                <updatePolicy>never</updatePolicy>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-                <updatePolicy>daily</updatePolicy>
-            </snapshots>
-            <id>ngpSnapshots</id>
-            <name>NGP Snapshots</name>
-            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-snapshots/</url>
-            <layout>default</layout>
         </pluginRepository>
     </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/${github.location}</url>
+        </repository>
+        <snapshotRepository>
+            <id>github</id>
+            <name>Github SNAPSHOT</name>
+            <url>https://maven.pkg.github.com/${github.location}</url>
+        </snapshotRepository>
+
+    </distributionManagement>
 </project>

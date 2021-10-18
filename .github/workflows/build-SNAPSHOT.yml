@@ -1,0 +1,82 @@
+name: Java SNAPSHOT build
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.gitignore'
+      - '*.md'
+      - 'docs/**'
+      - '.github/**'
+
+env:
+  java_version: '8'
+  node_version: '14'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up JDK 8
+        uses: actions/setup-java@v2
+        with:
+          java-version: ${{ env.java_version }}
+          distribution: 'adopt'
+          server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
+
+      - name: Cache NGP resources
+        uses: actions/cache@v2
+        id: cache-ngp-resources
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: |
+            ~/.m2/repository
+          # cache key should contains os, type of cache and a hash of the file that contains cached artifact dependency versions(root pom.xml)
+          key: ${{ runner.os }}-m2-${{ hashFiles('pom.xml') }}
+          # restore keys are relevant when a cache cannot be found using the exact key: on cache miss, a partial match with the restore keys is attempted
+          restore-keys: ${{ runner.os }}-m2
+
+      - uses: actions/setup-node@v2
+        if: steps.cache-ngp-resources.outputs.cache-hit != 'true'
+        with:
+          node-version: ${{ env.node_version }}
+
+      - name: Install the m365 CLI and use it to log into SharePoint
+        if: steps.cache-ngp-resources.outputs.cache-hit != 'true'
+        run: |
+          sudo npm install -g @pnp/cli-microsoft365
+          m365 login --authType password --userName ${{ secrets.SHAREPOINT_USER }} --password ${{ secrets.SHAREPOINT_PASSWORD }}
+          m365 status
+
+      # Get dependencies archive
+      - name: Download file from sharepoint and unzip
+        if: steps.cache-ngp-resources.outputs.cache-hit != 'true'
+        run: |
+          m365 spo file get --webUrl https://tecglobal.sharepoint.com/sites/TGCS-NGP-EU-Grooming --url '/sites/TGCS-NGP-EU-Grooming/Shared Documents/DevOps/bridge-ngp-dependencies/repository.zip' --asFile -p ./repository.zip
+          unzip -o repository.zip -d ~/.m2
+
+      - name: Publish packages
+        run: mvn deploy --batch-mode -DskipTests
+        env:
+          GITHUB_TOKEN: ${{ github.token }} # needs cross-repo token so Maven can access packages of other repos
+
+      - name: Get version from XML Info
+        id: pomversion
+        run:
+          echo "::set-output name=version::$(mvn help:evaluate -Dexpression=version -q -DforceStdout)"
+
+      - name: Upload the JAR and install script
+        run: |
+          m365 spo file add --webUrl ${{ env.siteUrl }} --folder '${{ env.folderPath }}/${{ env.tagversion }}' --path 'target/*.jar'
+          m365 spo file add --webUrl ${{ env.siteUrl }} --folder '${{ env.folderPath }}/${{ env.tagversion }}' --path 'bridgeinstall.bat'
+        env:
+          siteUrl: 'https://tecglobal.sharepoint.com/sites/TGCS-EDC-Projects-NL-JanLinders'
+          folderPath: '/Shared Documents/Projects - NL - Jan Linders/Release'
+          tagversion: ${{ steps.pomversion.outputs.version }
