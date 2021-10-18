@@ -1,0 +1,58 @@
+{
+  "depositRefundMode": false,
+  "orderNumber": "2952",
+  "lastModifiedRequestId": "eed37ceb-1b70-4a5f-8bac-478e65421df4",
+  "createTimestamp": "2020-11-30T10:40:10+02:00",
+  "total": 4.12,
+  "totalTaxableAmount": 0.00,
+  "id": "TRANS_C8AFA22A-695C-4C21-A4C0-B81E803BA620",
+  "totalBeforeTaxes": 4.12,
+  "totalTaxes": 0.00,
+  "totalPayments": 0.00,
+  "version": 2952,
+  "lastModifiedTimestamp": "2020-11-30T10:40:10+02:00",
+  "totalItemCount": 1,
+  "totalPriceModifications": -1.37,
+  "paymentShortage": 4.12,
+  "items": [{
+    "item": {
+      "displayName": {
+        "default": "HELDRO IJS"
+      },
+      "description": {
+        "default": "HELDRO IJS"
+      },
+      "skuId": "169963000",
+      "UOM": "EACH",
+      "isUOMTypeEach": true,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 1,
+    "itemLabelData": "8719689892104",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "8719689892104",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "priceModifications": [{
+        "value": -1.37,
+        "customerMessage": {
+          "default": "Folder week 2020-49"
+        }
+      }],
+      "total": 5.4900,
+      "voided": false,
+      "salePrice": 5.4900,
+      "salePriceLocked": false,
+      "totalPriceModifications": -1.37
+    }],
+    "LINE_CREATE_NUMBER": "3"
+  }]
+}

@@ -1,0 +1,23 @@
+<scsns:AddReceiptLines xmlns:scsns="http://bc.si.retail.ibm.com/POSBCSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://bc.si.retail.ibm.com/POSBCSchema" >
+    <AddReceiptLinesRequest>
+        <ParameterExtension/>
+        <RequestID>107</RequestID>
+        <Type>Customer</Type>
+        <Index>0</Index>
+        <Section>Body</Section>
+        <OriginalRequest>
+            <Group>107</Group>
+            <Location>After</Location>
+        </OriginalRequest>
+        <FormattedReceiptLine>
+            <Feeds>1</Feeds>
+            <Align>center</Align>
+            <LineCategory>LineItem</LineCategory>
+            <LineType>PersistentAdditionalLine</LineType>
+            <TextReceiptLine>
+                <Bold>1</Bold>
+                <Text>AGE RESTRICTED: 18</Text>
+            </TextReceiptLine>
+        </FormattedReceiptLine>
+    </AddReceiptLinesRequest>
+</scsns:AddReceiptLines>

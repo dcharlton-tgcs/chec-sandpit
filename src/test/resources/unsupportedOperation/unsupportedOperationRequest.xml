@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema:ClearlyANotSupportedOperation xmlns:schema="http://bc.si.retail.ibm.com/POSBCSchema">
+    <ClearlyANotSupportedOperationRequest>
+        <RequestID>133</RequestID>
+    </ClearlyANotSupportedOperationRequest>
+</schema:ClearlyANotSupportedOperation>

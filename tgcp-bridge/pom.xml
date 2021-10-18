@@ -1,0 +1,150 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>posbcbridge</artifactId>
+        <groupId>com.tgcs.tgcp</groupId>
+        <version>${revision}</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <packaging>jar</packaging>
+
+    <groupId>com.tgcs.tgcp</groupId>
+    <artifactId>bridge</artifactId>
+    <version>${revision}</version>
+
+    <name>tgcp bridge</name>
+    <description>Old Bridge</description>
+
+    <properties>
+        <serviceName>POSBCBridge</serviceName>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <json.version>20140107</json.version>
+        <tgcp-pos-tpnet.version>2.0.0-SNAPSHOT</tgcp-pos-tpnet.version>
+        <eft-wrapper-client.version>0.0.1-SNAPSHOT</eft-wrapper-client.version>
+        <printer-client.version>0.0.1-SNAPSHOT</printer-client.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.tgcs.posbc.bridge</groupId>
+            <artifactId>eft-wrapper-client</artifactId>
+            <version>${eft-wrapper-client.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tgcs.posbc.bridge</groupId>
+            <artifactId>printer-client</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tgcs.spring</groupId>
+            <artifactId>framework-spring</artifactId>
+        </dependency>
+        <!--#region Spring Boot-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                    <artifactId>jackson-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--#endregion-->
+        <!--#region TGCS-->
+        <dependency>
+            <groupId>com.tgcs.spring</groupId>
+            <artifactId>framework-spring</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tgcs.tgcp</groupId>
+            <artifactId>tgcp-authorization-api-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tgcs.tgcp</groupId>
+            <artifactId>tgcp-cash-management-api-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.tgcs.tgcp</groupId>
+            <artifactId>tgcp-ext-pos-tpnet-service</artifactId>
+            <version>${tgcp-pos-tpnet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tgcs.tgcp</groupId>
+            <artifactId>tgcp-ext-pos-tpnet-api-client</artifactId>
+            <version>${tgcp-pos-tpnet.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.tgcs.tgcp</groupId>
+            <artifactId>tgcp-framework-spring-client</artifactId>
+        </dependency>
+
+        <!-- <dependency>
+             <groupId>com.tgcs.tgcp</groupId>
+             <artifactId>tgcp-pos-api-client</artifactId>
+             <version>${tgcp-pos-version}</version>
+         </dependency>-->
+        <!--#endregion-->
+        <!--#region Third part-->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>${json.version}</version>
+        </dependency>
+        <!--#region Test-->
+        <dependency>
+            <groupId>com.tgcs.tgcp</groupId>
+            <artifactId>tgcp-framework-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>com.vaadin.external.google</groupId>
+                    <artifactId>android-json</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!--#endregion-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+</project>

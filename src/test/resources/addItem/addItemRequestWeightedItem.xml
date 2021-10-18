@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><scsns:AddItem xmlns:scsns="http://bc.si.retail.ibm.com/POSBCSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://bc.si.retail.ibm.com/POSBCSchema C:\PosBc\POSBCSchema_main.xsd" >
+    <AddItemRequest>
+        <ParameterExtension/>
+        <RequestID>102</RequestID>
+        <ItemIdentifier>
+            <BarCode>
+                <ScanDataLabel>2206092002979</ScanDataLabel>
+                <ScanDataType>SCAN_SDT_Code128</ScanDataType>
+            </BarCode>
+        </ItemIdentifier>
+    </AddItemRequest>
+</scsns:AddItem>

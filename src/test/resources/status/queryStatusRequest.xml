@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?><scsns:QueryStatus xmlns:scsns="http://bc.si.retail.ibm.com/POSBCSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://bc.si.retail.ibm.com/POSBCSchema C:\PosBc\POSBCSchema_main.xsd" >
+    <QueryStatusRequest/>
+</scsns:QueryStatus>

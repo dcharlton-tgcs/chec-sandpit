@@ -1,0 +1,23 @@
+{"groups": [
+  {
+    "name": "pos.printer",
+    "type": "com.tgcs.tgcp.bridge.configuration.PrinterProperties",
+    "sourceType": "com.tgcs.tgcp.bridge.configuration.PrinterProperties",
+    "sourceMethod": "getHibernate()"
+  }
+],"properties": [
+  {
+    "name": "host",
+    "type": "java.lang.String",
+    "sourceType": "com.tgcs.tgcp.bridge.configuration.PrinterProperties",
+    "description": "The address of the Printer service",
+    "defaultValue": "localhost"
+  },
+  {
+    "name": "port",
+    "type": "java.lang.Integer",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "description": "The port of the Printer service",
+    "defaultValue": 8187
+  }
+]}

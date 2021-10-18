@@ -1,0 +1,39 @@
+#Eclipse custom folders
+**/.settings/
+/.settings/
+**/.classpath
+**/.project
+/.project
+**/bin
+/Servers/**
+**/.apt_generated/**
+**/RemoteSystemsTempFiles/**
+
+logs
+**/*.log
+
+#vi things
+**/*.*~
+**/*.$*
+**/*.swp
+
+#Intellij custom folders
+**/.idea/
+**/*.iml
+
+#Project related folders
+**/target/
+/target/
+**/.*flattened-pom.xml
+
+#MAC OS folder
+**/.DS_Store
+/.metadata/
+/.recommenders/
+
+#VS code things
+/.vscode/
+
+#data
+/data
+/logs/

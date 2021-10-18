@@ -1,0 +1,132 @@
+{
+  "depositRefundMode": false,
+  "orderNumber": "2912",
+  "lastModifiedRequestId": "7fe16153-a0df-4c23-80d5-13abfe8f24b7",
+  "createTimestamp": "2020-11-27T13:43:23+02:00",
+  "total": 3,
+  "totalTaxableAmount": 0.00,
+  "id": "TRANS_5A53386B-7492-4013-B76D-5C8C5CB5E3C8",
+  "totalBeforeTaxes": 3,
+  "totalTaxes": 0.00,
+  "totalPayments": 0,
+  "version": 2912,
+  "lastModifiedTimestamp": "2020-11-27T13:43:23+02:00",
+  "totalItemCount": 3,
+  "totalPriceModifications": -1.50,
+  "paymentShortage": 3,
+  "items": [{
+    "item": {
+      "displayName": {
+        "default": "VERS GEPERST SAP 250"
+      },
+      "description": {
+        "default": "VERS GEPERST SAP 250"
+      },
+      "skuId": "49867000",
+      "UOM": "EACH",
+      "isUOMTypeEach": true,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 1,
+    "itemLabelData": "8717953070814",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "8717953070814",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "priceModifications": [{
+        "value": -1.48,
+        "customerMessage": {
+          "default": "Lunchtime"
+        }
+      }],
+      "total": 1.4900,
+      "voided": false,
+      "salePrice": 1.4900,
+      "salePriceLocked": false,
+      "totalPriceModifications": -1.48
+    }],
+    "LINE_CREATE_NUMBER": "3"
+  }, {
+    "item": {
+      "displayName": {
+        "default": "LUNCHTIME.."
+      },
+      "description": {
+        "default": "LUNCHTIME.."
+      },
+      "skuId": "140633000",
+      "UOM": "EACH",
+      "isUOMTypeEach": true,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 1,
+    "itemLabelData": "8710624565541",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "8710624565541",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "priceModifications": [{
+        "value": -0.01,
+        "customerMessage": {
+          "default": "Lunchtime"
+        }
+      }],
+      "total": 0.0100,
+      "voided": false,
+      "salePrice": 0.0100,
+      "salePriceLocked": false,
+      "totalPriceModifications": -0.01
+    }],
+    "LINE_CREATE_NUMBER": "7"
+  }, {
+    "item": {
+      "displayName": {
+        "default": "GEZOND WIT"
+      },
+      "description": {
+        "default": "GEZOND WIT"
+      },
+      "skuId": "140621000",
+      "UOM": "EACH",
+      "isUOMTypeEach": true,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 1,
+    "itemLabelData": "2204910003008",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "2204910003008",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "total": 3.0000,
+      "voided": false,
+      "salePrice": 3.0000,
+      "salePriceLocked": false,
+      "totalPriceModifications": 0.00
+    }],
+    "LINE_CREATE_NUMBER": "11"
+  }]
+}

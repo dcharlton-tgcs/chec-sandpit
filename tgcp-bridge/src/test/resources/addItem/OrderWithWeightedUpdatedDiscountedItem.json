@@ -1,0 +1,98 @@
+{
+  "depositRefundMode": false,
+  "orderNumber": "2960",
+  "lastModifiedRequestId": "f7aa6a6c-4880-41e9-ab09-f2effe3dee4a",
+  "createTimestamp": "2020-11-30T12:28:53+02:00",
+  "total": 4.74,
+  "totalTaxableAmount": 0.00,
+  "id": "TRANS_9A8D6D41-5DC4-4B65-A0DA-F2D81C4FAD3D",
+  "totalBeforeTaxes": 4.74,
+  "totalTaxes": 0.00,
+  "totalPayments": 0.00,
+  "version": 2960,
+  "lastModifiedTimestamp": "2020-11-30T12:28:53+02:00",
+  "totalItemCount": 2,
+  "totalPriceModifications": -1.2,
+  "paymentShortage": 4.74,
+  "items": [{
+    "item": {
+      "displayName": {
+        "default": "LIMBURGSE HAM"
+      },
+      "description": {
+        "default": "LIMBURGSE HAM"
+      },
+      "skuId": "249160000",
+      "UOM": "KGS",
+      "isUOMTypeEach": false,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 0.1188,
+    "itemLabelData": "2206092002979",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "2206092002979",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "priceModifications": [{
+        "value": -0.6,
+        "customerMessage": {
+          "default": "Folder week 2020-49"
+        }
+      }],
+      "total": 24.9900,
+      "voided": false,
+      "salePrice": 24.9900,
+      "salePriceLocked": false,
+      "totalPriceModifications": -5.0505050505050505050505050505
+    }],
+    "LINE_CREATE_NUMBER": "3"
+  }, {
+    "item": {
+      "displayName": {
+        "default": "LIMBURGSE HAM"
+      },
+      "description": {
+        "default": "LIMBURGSE HAM"
+      },
+      "skuId": "249160000",
+      "UOM": "KGS",
+      "isUOMTypeEach": false,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 0.1188,
+    "itemLabelData": "2206092002979",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "2206092002979",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "priceModifications": [{
+        "value": -0.6,
+        "customerMessage": {
+          "default": "Folder week 2020-49"
+        }
+      }],
+      "total": 24.9900,
+      "voided": false,
+      "salePrice": 24.9900,
+      "salePriceLocked": false,
+      "totalPriceModifications": -5.0505050505050505050505050505
+    }],
+    "LINE_CREATE_NUMBER": "9"
+  }]
+}

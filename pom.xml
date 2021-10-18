@@ -1,0 +1,327 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.tgcs.tgcp</groupId>
+        <artifactId>parent</artifactId>
+        <version>0.0.17-2021.5.17-2450-bf44262</version>
+    </parent>
+
+    <groupId>com.tgcs.tgcp</groupId>
+    <artifactId>posbcbridge</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+    <name>POSBC-Bridge</name>
+    <description>Chec-Webservice Bridge Connector</description>
+
+    <properties>
+        <serviceName>POSBCBridge</serviceName>
+        <java.version>1.8</java.version>
+        <maven-jar-plugin.version>3.4.2</maven-jar-plugin.version>
+        <release.number>2.0.0</release.number>
+        <release.build>SNAPSHOT</release.build>
+        <revision>${release.number}-${release.build}</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <generated-sources-path>${project.build.directory}/generated-sources</generated-sources-path>
+        <generated-sources-java-path>main/java</generated-sources-java-path>
+        <framework-spring-version>0.3.9-2021.5.16-1005-1b70aaf</framework-spring-version>
+        <tgcp-pos-version>0.0.17-2021.5.24-3993-9223e709</tgcp-pos-version>
+        <tgcp-framework-version>0.0.17-2021.5.23-4597-b959e9c4a</tgcp-framework-version>
+        <tgcp-swagger-model-version>0.0.5-2020.6.22-2353-459c2de</tgcp-swagger-model-version>
+        <tgcp-authorization-version>0.0.17-2021.5.23-3741-669db13</tgcp-authorization-version>
+        <tgcp-cash-management-version>0.0.17-2021.5.23-4985-8f82a4c3</tgcp-cash-management-version>
+
+        <hibernate-validator.version>6.0.17.Final</hibernate-validator.version>
+    </properties>
+
+    <modules>
+        <module>tgcp-bridge</module>
+        <module>eft-wrapper-client</module>
+        <module>printer-client</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!--#region Spring Boot-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${springboot-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${springboot-version}</version>
+                <scope>compile</scope>
+            </dependency>
+            <!--#endregion-->
+            <!--#region TGCS-->
+            <dependency>
+                <groupId>com.tgcs.tgcp</groupId>
+                <artifactId>tgcp-authorization-api-client</artifactId>
+                <version>${tgcp-authorization-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tgcs.tgcp</groupId>
+                <artifactId>tgcp-cash-management-api-client</artifactId>
+                <version>${tgcp-cash-management-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tgcs.tgcp</groupId>
+                <artifactId>tgcp-framework-spring-client</artifactId>
+                <version>${tgcp-framework-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tgcs.spring</groupId>
+                <artifactId>framework-spring</artifactId>
+                <version>${framework-spring-version}</version>
+            </dependency>
+            <!--#endregion-->
+            <!--#region Third part-->
+            <dependency>
+                <groupId>org.hibernate.validator</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <!--#endregion-->
+            <!--#region Test-->
+            <dependency>
+                <groupId>com.tgcs.tgcp</groupId>
+                <artifactId>tgcp-framework-test</artifactId>
+                <version>${tgcp-framework-version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring-version}</version>
+                <scope>test</scope>
+            </dependency>
+            <!--#endregion-->
+
+            <!--  <dependency>
+                  <groupId>com.tgcs.tgcp</groupId>
+                  <artifactId>tgcp-pos-api-client</artifactId>
+                  <version>${tgcp-pos-version}</version>
+              </dependency>-->
+            <!-- <dependency>
+                 <groupId>com.tgcs.tgcp</groupId>
+                 <artifactId>tgcp-pos-api-client</artifactId>
+                 <version>${tgcp-pos-version}</version>
+             </dependency>-->
+        </dependencies>
+    </dependencyManagement>
+
+    <repositories>
+        <!-- needed to resolve base gravity dependencies until they are published to tgcsnexus -->
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <id>xc-repo</id>
+            <name>xc-repo</name>
+            <url>http://xc-repo.rtptgcs.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>tgcsReleases</id>
+            <name>TGCS Releases</name>
+            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-release/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>tgcsStaging</id>
+            <name>TGCS Staging</name>
+            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-staging/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>tgcsSnapshots</id>
+            <name>TGCS Snapshots</name>
+            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-snapshot/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>ngpReleases</id>
+            <name>NGP Releases</name>
+            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-releases/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>ngpStaging</id>
+            <name>NGP Staging</name>
+            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-staging/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>ngpSnapshots</id>
+            <name>NGP Snapshots</name>
+            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-snapshots/</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>tgcsReleases</id>
+            <name>TGCS Releases</name>
+            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-release/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>tgcsStaging</id>
+            <name>TGCS Staging</name>
+            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-staging/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>tgcsSnapshots</id>
+            <name>TGCS Snapshots</name>
+            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-snapshot/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>ngpReleases</id>
+            <name>NGP Releases</name>
+            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-releases/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>ngpMavenPublic</id>
+            <name>NGP Maven Public</name>
+            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-public/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>ngpStaging</id>
+            <name>NGP Staging</name>
+            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-staging/</url>
+            <layout>default</layout>
+        </pluginRepository>
+        <pluginRepository>
+            <releases>
+                <enabled>false</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>daily</updatePolicy>
+            </snapshots>
+            <id>ngpSnapshots</id>
+            <name>NGP Snapshots</name>
+            <url>http://xcdev05.ralntdom.rtptgcs.com:8081/repository/maven-snapshots/</url>
+            <layout>default</layout>
+        </pluginRepository>
+    </pluginRepositories>
+</project>

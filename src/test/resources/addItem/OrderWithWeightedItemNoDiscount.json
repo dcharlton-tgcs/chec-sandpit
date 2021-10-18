@@ -1,0 +1,52 @@
+{
+  "depositRefundMode": false,
+  "orderNumber": "2960",
+  "lastModifiedRequestId": "8cb7c14e-b836-4ad7-99af-cd113c9ee49c",
+  "createTimestamp": "2020-11-30T12:28:53+02:00",
+  "total": 2.37,
+  "totalTaxableAmount": 0.00,
+  "id": "TRANS_9A8D6D41-5DC4-4B65-A0DA-F2D81C4FAD3D",
+  "totalBeforeTaxes": 2.37,
+  "totalTaxes": 0.00,
+  "totalPayments": 0.00,
+  "version": 2960,
+  "lastModifiedTimestamp": "2020-11-30T12:28:53+02:00",
+  "totalItemCount": 1,
+  "totalPriceModifications": 0.00,
+  "paymentShortage": 2.37,
+  "items": [{
+    "item": {
+      "displayName": {
+        "default": "LIMBURGSE HAM"
+      },
+      "description": {
+        "default": "LIMBURGSE HAM"
+      },
+      "skuId": "249160000",
+      "UOM": "KGS",
+      "isUOMTypeEach": false,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 0.1188,
+    "itemLabelData": "2206092002979",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "2206092002979",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "total": 24.9900,
+      "voided": false,
+      "salePrice": 24.9900,
+      "salePriceLocked": false,
+      "totalPriceModifications": 0.00
+    }],
+    "LINE_CREATE_NUMBER": "3"
+  }]
+}

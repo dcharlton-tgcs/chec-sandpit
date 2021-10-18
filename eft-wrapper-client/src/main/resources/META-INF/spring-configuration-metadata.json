@@ -1,0 +1,58 @@
+{"groups": [
+  {
+    "name": "pos.handle.eft.wrapper",
+    "type": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties"
+  }
+],"properties": [
+  {
+    "name": "host",
+    "type": "java.lang.String",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "description": "The address of the EFT Wrapper RestService",
+    "defaultValue": "localhost"
+  },
+  {
+    "name": "port",
+    "type": "java.lang.Integer",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "description": "The port of the EFT Wrapper RestService",
+    "defaultValue": 8181
+  },
+  {
+    "name": "context-path",
+    "type": "java.lang.String",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "description": "The path of the EFT Wrapper RestService endpoint",
+    "defaultValue": "/"
+  },
+  {
+    "name": "proto",
+    "type": "java.lang.String",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "description": "The protocol of the EFT Wrapper RestService",
+    "defaultValue": "http"
+  },
+  {
+    "name": "connect-timeout",
+    "type": "java.lang.Integer",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "description": "The maximum time to wait a response of the EFT Wrapper RestService endpoint. A timeout value of 0 specifies an infinite timeout.",
+    "defaultValue": 10
+  },
+  {
+    "name": "read-timeout",
+    "type": "java.lang.Integer",
+    "sourceType": "com.tgcs.posbc.bridge.eft.wrapper.config.EftWrapperProperties",
+    "description": "The maximum time to read the response of the EFT Wrapper RestService endpoint. A timeout value of 0 specifies an infinite timeout.",
+    "defaultValue": 130
+  }
+],"hints": [
+  {
+    "name": "pos.handle.eft.wrapper.proto",
+    "values": [
+      {"value": "http"},
+      {"value": "https"}
+    ]
+  }
+]}

@@ -1,0 +1,15 @@
+logging:
+  level:
+    root: INFO
+    com.tgcs.posbc.bridge.eft.wrapper: TRACE
+
+pos:
+  handle:
+    eft:
+      wrapper:
+        context-path: /CHECVic107WrapperSimulator
+        proto: http
+        host: 192.168.1.150
+        port: 8181
+        connect-timeout: 5
+        read-timeout: 2

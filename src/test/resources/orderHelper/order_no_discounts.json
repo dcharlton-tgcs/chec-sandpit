@@ -1,0 +1,52 @@
+{
+  "depositRefundMode": false,
+  "orderNumber": "2912",
+  "lastModifiedRequestId": "231b6de4-66dd-41e4-8266-e44fd1ca09fb",
+  "createTimestamp": "2020-11-27T13:43:23+02:00",
+  "total": 1.49,
+  "totalTaxableAmount": 0.00,
+  "id": "TRANS_5A53386B-7492-4013-B76D-5C8C5CB5E3C8",
+  "totalBeforeTaxes": 1.49,
+  "totalTaxes": 0.00,
+  "totalPayments": 0.00,
+  "version": 2912,
+  "lastModifiedTimestamp": "2020-11-27T13:43:23+02:00",
+  "totalItemCount": 1,
+  "totalPriceModifications": 0,
+  "paymentShortage": 1.49,
+  "items": [{
+    "item": {
+      "displayName": {
+        "default": "VERS GEPERST SAP 250"
+      },
+      "description": {
+        "default": "VERS GEPERST SAP 250"
+      },
+      "skuId": "49867000",
+      "UOM": "EACH",
+      "isUOMTypeEach": true,
+      "attributes": {
+        "MIN_AGE_TO_SELL": null
+      }
+    },
+    "quantity": 1,
+    "itemLabelData": "8717953070814",
+    "parentOrderItemId": "",
+    "type": "SALE",
+    "id": "8717953070814",
+    "validations": [{
+      "deferred": true,
+      "approvable": true,
+      "id": "AGE_TO_SELL",
+      "objectType": "OrderItem"
+    }],
+    "prices": [{
+      "total": 1.4900,
+      "voided": false,
+      "salePrice": 1.4900,
+      "salePriceLocked": false,
+      "totalPriceModifications": 0.00
+    }],
+    "LINE_CREATE_NUMBER": "3"
+  }]
+}

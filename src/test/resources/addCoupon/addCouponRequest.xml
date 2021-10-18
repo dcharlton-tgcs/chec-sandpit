@@ -1,0 +1,14 @@
+<AddCoupon>
+    <AddCouponRequest>
+        <ParameterExtension/>
+        <OperatorID/>
+        <EnableCallback>false</EnableCallback>
+        <RequestID>104</RequestID>
+        <CouponIdentifier>
+            <BarCode>
+                <ScanDataLabel>51234567890</ScanDataLabel>
+                <ScanDataType>SCAN_SDT_UPCA</ScanDataType>
+            </BarCode>
+        </CouponIdentifier>
+    </AddCouponRequest>
+</AddCoupon>

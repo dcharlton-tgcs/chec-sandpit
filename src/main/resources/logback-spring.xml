@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true">
+
+    <property name="logFileName"                value="posbcBridge"/>
+    <property name="checLogFileName"            value="posbcBridge-chec"/>
+    <property name="webServiceLogFileName"      value="posbcBridge-webService"/>
+
+    <!-- here value has the template: value="cmd argument:-default value" and is determined as folowing:
+     command line argument given as eg. -Dlogging.logsDirectory=yourPath when launching the application jar file
+     default value - if no argument is passed, it will be used the value from default application.properties file-->
+    <springProperty scope="context" name="logsDirectory" source="logging.path"/>
+    <springProperty scope="context" name="maxFileSize" source="logging.file.max-size"/>
+    <!--total size of all log files of type PosbcBridge. Oldest files are deleted when the total size cap is exceeded-->
+    <springProperty scope="context" name="totalSizeCap" source="logging.file.size-cap.bridge"/>
+    <!--total size of all log files of type PosBcBridge-webService. Oldest files are deleted when the total size cap is exceeded-->
+    <springProperty scope="context" name="totalSizeCapWebService" source="logging.file.size-cap.webService"/>
+    <!--total size of all log files of type PosBcBridge-Chec. Oldest files are deleted when the total size cap is exceeded-->
+    <springProperty scope="context" name="totalSizeCapChec" source="logging.file.size-cap.chec"/>
+
+    <springProperty scope="context" name="maxHistory" source="logging.file.max-history"/>
+
+    <appender name="Console" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%black(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%logger): %msg%n%throwable</Pattern>
+        </layout>
+    </appender>
+
+    <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d %p %-40.40logger{39} [%t] %m%n</Pattern>
+        </encoder>
+        <!-- rollover daily and when the file reaches maxFileSize-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logsDirectory}/${logFileName}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <!-- total size of all  files, if total size > totalSizeCap, it will delete old  file -->
+            <totalSizeCap>${totalSizeCap}</totalSizeCap>
+            <!-- maxHistory days to keep -->
+            <maxHistory>${maxHistory}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="RollingFileChec" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d %p %-40.40logger{39} [%t] %n%m%n</Pattern>
+        </encoder>
+        <!-- rollover daily and when the file reaches maxFileSize -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logsDirectory}/${checLogFileName}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <!-- total size of all  files, if total size > totalSizeCap, it will delete old  file -->
+            <totalSizeCap>${totalSizeCapChec}</totalSizeCap>
+            <!-- maxHistory days to keep -->
+            <maxHistory>${maxHistory}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <appender name="RollingFileWebService" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d %p %-40.40logger{39} [%t] %n%m%n</Pattern>
+        </encoder>
+        <!-- rollover daily and when the file reaches maxFileSize -->
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${logsDirectory}/${webServiceLogFileName}-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>${maxFileSize}</maxFileSize>
+            <!-- total size of all  files, if total size > totalSizeCap, it will delete old  file -->
+            <totalSizeCap>${totalSizeCapWebService}</totalSizeCap>
+            <!-- maxHistory days to keep -->
+            <maxHistory>${maxHistory}</maxHistory>
+            <cleanHistoryOnStart>true</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+
+    <root>
+        <appender-ref ref="RollingFile"/>
+        <appender-ref ref="Console"/>
+    </root>
+
+    <!--#region Chec-->
+    <logger name="com.tgcs.tgcp.bridge.tcpserver.TcpClient" additivity="false">
+        <appender-ref ref="RollingFileChec"/>
+    </logger>
+    <logger name="com.tgcs.tgcp.bridge.checoperations.handlers" additivity="false">
+        <appender-ref ref="RollingFileChec"/>
+    </logger>
+    <!--#endregion-->
+
+    <!--#region Web Service-->
+    <logger name="com.tgcs.tgcp.bridge.webservice" additivity="false">
+        <appender-ref ref="RollingFileWebService"/>
+    </logger>
+    <logger name="com.tgcs.tgcp.pos.connector.api.client.impl.TpdotnetClientImpl" additivity="false">
+        <appender-ref ref="RollingFileWebService"/>
+    </logger>
+    <logger name="com.tgcs.tgcp.pos.tpnet.service.impl" additivity="false">
+        <appender-ref ref="RollingFileWebService"/>
+    </logger>
+    <!--#endregion-->
+
+</configuration>
