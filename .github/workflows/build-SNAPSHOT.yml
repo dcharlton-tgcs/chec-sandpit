@@ -73,6 +73,7 @@ jobs:
 
       - name: Upload the JAR and install script
         run: |
+          mkdir staging && cp target/*.jar staging/posbcbridge.jar
           m365 spo file add --webUrl ${{ env.siteUrl }} --folder '${{ env.folderPath }}/${{ env.tagversion }}' --path 'target/*.jar'
           m365 spo file add --webUrl ${{ env.siteUrl }} --folder '${{ env.folderPath }}/${{ env.tagversion }}' --path 'bridgeinstall.bat'
         env:
