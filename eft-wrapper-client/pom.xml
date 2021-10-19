@@ -78,14 +78,6 @@
         <!--#endregion-->
     </dependencies>
 
-<!--    <distributionManagement>-->
-<!--        <snapshotRepository>-->
-<!--            <id>tgcsnexus-snapshot</id>-->
-<!--            <name>TGCS Nexus Snapshot</name>-->
-<!--            <url>http://tgcsnexus.rtptgcs.com:28081/repository/tgcs-maven-snapshot/</url>-->
-<!--        </snapshotRepository>-->
-<!--    </distributionManagement>-->
-
     <build>
         <resources>
             <resource>
